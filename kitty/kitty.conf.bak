@@ -1,0 +1,98 @@
+# ===============================
+# 🎨 Appearance
+# ===============================
+
+# Background and foreground colors
+background              #15002E          # deep purple base
+foreground              #E0DEF4          # soft white text
+selection_background    #3B1E5D          # brighter purple when selecting text
+selection_foreground    #FFFFFF          # white text on selection
+
+# Cursor color
+cursor                  #CBA6F7          # lavender cursor
+
+# Tab bar colors
+tab_bar_background       #1A0B33
+active_tab_background    #3B1E5D
+active_tab_foreground    #FFFFFF
+inactive_tab_background  #15002E
+inactive_tab_foreground  #8A7FA8
+
+# Border color for active window
+active_border_color      #CBA6F7
+inactive_border_color    #2E1A4A
+
+# ===============================
+# 🧱 Font
+# ===============================
+
+# Choose your font (use one you have installed)
+font_family              JetBrainsMono Nerd Font
+bold_font                auto
+italic_font              auto
+font_size                11.5
+
+# Makes font rendering smoother
+font_features            +liga
+adjust_line_height       110%
+adjust_column_width      100%
+
+# ===============================
+# 🖱️ Behavior
+# ===============================
+
+# Smooth scrolling and mouse
+scrollback_lines         5000
+enable_audio_bell        no
+focus_follows_mouse      no
+
+# Copy on select (like macOS terminals)
+copy_on_select           yes
+
+# ===============================
+# 🧩 Window & Layout
+# ===============================
+
+# Disable window title bar (cleaner look)
+hide_window_decorations  yes
+
+# Window padding (space around text)
+window_padding_width     8
+
+# Slightly rounded corners
+window_margin_width      4
+
+# ===============================
+# ⚡ Performance & Keybinds
+# ===============================
+
+# Faster rendering
+repaint_delay            8
+input_delay              3
+sync_to_monitor          yes
+
+# Easy splits
+map ctrl+shift+enter     new_window
+map ctrl+shift+t         new_tab
+map ctrl+shift+w         close_window
+map ctrl+shift+left      previous_tab
+map ctrl+shift+right     next_tab
+
+# ===============================
+# 🧠 Startup
+# ===============================
+
+# Start directly in your home directory
+initial_window_directory ~/
+
+
+# ===============================
+# ✨ Optional color tweaks
+# ===============================
+
+# You can try swapping to a blueish tone instead of purple:
+# background              #0E153A          # deep navy blue
+# selection_background    #1E2369
+# active_border_color     #6D9EEB
+# tab_bar_background      #101533
+
