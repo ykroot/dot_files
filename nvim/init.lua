@@ -118,6 +118,67 @@ require("lazy").setup({
     end,
   },
   {
+    "akinsho/bufferline.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("bufferline").setup {
+        options = {
+          mode = "buffers",
+          close_command = "bdelete! %d",
+          right_mouse_command = "bdelete! %d",
+          indicator = { style = "none" },
+          buffer_close_icon = "×",
+          modified_icon = "●",
+          close_icon = "",
+          separator_style = "thin",
+          show_buffer_icons = true,
+          show_buffer_close_icons = true,
+          show_close_icon = false,
+          always_show_bufferline = true,
+          offsets = {
+            { filetype = "NvimTree", text = "File Explorer", text_align = "center", separator = true },
+          },
+        },
+        highlights = {
+          fill = { bg = "NONE" },
+          background = { bg = "NONE" },
+          tab = { bg = "NONE" },
+          tab_selected = { fg = "#CBA6F7", bg = "NONE" },
+          buffer_visible = { bg = "NONE" },
+          buffer_selected = { fg = "#CBA6F7", bg = "NONE", bold = true },
+          modified = { bg = "NONE" },
+          modified_visible = { bg = "NONE" },
+          modified_selected = { fg = "#F38BA8", bg = "NONE" },
+          separator = { fg = "#CBA6F7", bg = "NONE" },
+          separator_selected = { fg = "#CBA6F7", bg = "NONE" },
+          separator_visible = { fg = "#CBA6F7", bg = "NONE" },
+          close_button = { bg = "NONE" },
+          close_button_visible = { bg = "NONE" },
+          close_button_selected = { fg = "#CBA6F7", bg = "NONE" },
+        },
+      }
+      vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>", { silent = true })
+      vim.keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { silent = true })
+      vim.keymap.set("n", "<leader>x", ":bdelete<CR>", { silent = true })
+      
+      vim.api.nvim_create_autocmd("ColorScheme", {
+        callback = function()
+          vim.cmd [[
+            highlight BufferLineFill guibg=NONE ctermbg=NONE
+            highlight BufferLineBackground guibg=NONE ctermbg=NONE
+            highlight BufferLineTab guibg=NONE ctermbg=NONE
+            highlight BufferLineTabSelected guifg=#CBA6F7 guibg=NONE ctermbg=NONE
+            highlight BufferLineBufferVisible guibg=NONE ctermbg=NONE
+            highlight BufferLineBufferSelected guifg=#CBA6F7 guibg=NONE ctermbg=NONE gui=bold
+            highlight BufferLineSeparator guifg=#CBA6F7 guibg=NONE ctermbg=NONE
+            highlight BufferLineSeparatorSelected guifg=#CBA6F7 guibg=NONE ctermbg=NONE
+            highlight BufferLineSeparatorVisible guifg=#CBA6F7 guibg=NONE ctermbg=NONE
+          ]]
+        end,
+      })
+    end,
+  },
+  {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
@@ -431,11 +492,17 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     vim.cmd "hi StatusLineNC guibg=NONE ctermbg=NONE"
     vim.cmd "hi VertSplit guifg=#CBA6F7 guibg=NONE"
     vim.cmd "hi WinSeparator guifg=#CBA6F7 guibg=NONE"
+    vim.cmd "hi TabLine guibg=NONE ctermbg=NONE"
+    vim.cmd "hi TabLineFill guibg=NONE ctermbg=NONE"
+    vim.cmd "hi TabLineSel guibg=NONE ctermbg=NONE"
   end,
 })
 vim.cmd "hi StatusLine guibg=NONE ctermbg=NONE"
 vim.cmd "hi StatusLineNC guibg=NONE ctermbg=NONE"
 vim.cmd "hi VertSplit guifg=#CBA6F7 guibg=NONE"
 vim.cmd "hi WinSeparator guifg=#CBA6F7 guibg=NONE"
+vim.cmd "hi TabLine guibg=NONE ctermbg=NONE"
+vim.cmd "hi TabLineFill guibg=NONE ctermbg=NONE"
+vim.cmd "hi TabLineSel guibg=NONE ctermbg=NONE"
 
 vim.opt.fillchars:append { vert = "│", vertleft = "│", vertright = "│", horiz = "─", horizup = "─", horizdown = "─" }
